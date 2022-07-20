@@ -1,10 +1,16 @@
 import React from 'react';
 
+import { Button } from '@atoms/Button';
+import { Container, Header } from './layouts';
+
 const App = () => {
   return (
-    <>
-      <div>Hello im default button</div>
-    </>
+    <Container>
+      <Header>
+        
+      </Header>
+      <Button>Hello world</Button>
+    </Container>
   )
 }
 

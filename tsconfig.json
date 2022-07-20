@@ -8,7 +8,8 @@
         "@utils/*": ["./src/utils/*"],
         "@atoms/*": ["./src/components/atoms/*"],
         "@molecules/*": ["./src/components/molecules/*"],
-        "@organisms/*": ["./src/components/organisms/*"]
+        "@organisms/*": ["./src/components/organisms/*"],
+        "@constants/*": ["./src/constants/*"]
       },
       "jsx": "react",
       "allowJs": true,

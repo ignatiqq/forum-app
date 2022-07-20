@@ -2,8 +2,8 @@ const theme = {
     colors: {
         primaryText: "#4C4C4C",
         secondaryText: "#888888",
-        primaryOrganisms: "#CD8802",
-        secondaryOrganisms: "#f6f6ef"
+        primary: "#CD8802",
+        secondary: "#f6f6ef"
     },
     mediaQueries: {
         mobile: "480px",
@@ -16,29 +16,28 @@ const theme = {
         small: "12px",
         normal: "16px",
         large: "24px",
+    },
+    transition: {
+        hover: "all .3s ease"
     }
-}
+};
 
 const lightTheme = {
-    colors: {
-        primaryText: "#4C4C4C",
-        secondaryText: "#888888",
-        primary: "#CD8802",
-        secondary: "#f6f6ef",
-    },
-}
+    primaryText: "#4C4C4C",
+    secondaryText: "#888888",
+    primary: "#CD8802",
+    secondary: "#f6f6ef"
+};
 
 const darkTheme = {
-    colors: {
-        primary: "#4C4C4C",
-        secondary: "#888888",
-        primaryText: "#FFFFFF",
-        secondaryText: "#AEAEAE"
-    }
-}
+    primaryText: "#FFFFFF",
+    secondaryText: "#AEAEAE",
+    primary: "#4C4C4C",
+    secondary: "#888888"
+};
 
 export {
     theme,
     lightTheme,
     darkTheme
-}
+};

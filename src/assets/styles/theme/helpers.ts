@@ -1,32 +1,38 @@
-import { lightTheme, darkTheme } from ".";
-
-enum themes {
-    light = "light",
-    dark = "dark"
-}
-
-type appTheme = themes;
+import { lightTheme, darkTheme, theme } from ".";
 
 interface ITheme {
-    [key: string]: {
-        [key: string]: string | number
-    }
+    [key: string]: object
 }
 
-function getAppTheme(params: appTheme): ITheme {
+function getAppTheme(params: string): ITheme {
     switch (params) {
-        case themes.light: {
-            return lightTheme
+        case "light": {
+            return {
+                ...theme,
+                colors: {
+                    ...lightTheme
+                }
+            }
         }
         break;
 
-        case themes.dark: {
-            return darkTheme
+        case "dark": {
+            return {
+                ...theme,
+                colors: {
+                    ...darkTheme
+                }
+            }
         }
         break;
 
         default: {
-            return lightTheme
+            return {
+                ...theme,
+                colors: {
+                    ...lightTheme
+                }
+            }
         }
         break;
     }
