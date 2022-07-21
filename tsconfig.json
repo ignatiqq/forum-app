@@ -9,7 +9,8 @@
         "@atoms/*": ["./src/components/atoms/*"],
         "@molecules/*": ["./src/components/molecules/*"],
         "@organisms/*": ["./src/components/organisms/*"],
-        "@constants/*": ["./src/constants/*"]
+        "@constants/*": ["./src/constants/*"],
+        "@api/*": ["./src/api/*"]
       },
       "jsx": "react",
       "allowJs": true,

@@ -27,7 +27,8 @@ module.exports = {
             "@atoms": path.resolve(__dirname, "src/components/atoms"),
             "@molecules": path.resolve(__dirname, "src/components/molecules"),
             "@organisms": path.resolve(__dirname, "src/components/organisms"),
-            "@constants": path.resolve(__dirname, "src/constants")
+            "@constants": path.resolve(__dirname, "src/constants"),
+            "@api": path.resolve(__dirname, 'src/api')
         }
     },
     optimization: {
