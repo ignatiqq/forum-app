@@ -1,15 +1,18 @@
 import React from 'react';
 
-import { Button } from '@atoms/Button';
-import { Container, Header } from './layouts';
+import { Button, NavigationLink } from '@atoms/index';
+import { Navigation } from "@molecules/index";
+import { Container,   Header } from './layouts';
 
 const App = () => {
   return (
     <Container>
       <Header>
-        
+        <Navigation>
+          <NavigationLink to="/">Main</NavigationLink>
+          <NavigationLink to="/login">Login</NavigationLink>
+        </Navigation>
       </Header>
-      <Button>Hello world</Button>
     </Container>
   )
 }

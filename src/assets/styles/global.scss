@@ -1,6 +1,4 @@
-import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -15,12 +13,9 @@ const GlobalStyle = createGlobalStyle`
 
 
   body {
-    background: var(--body-background);
-    font-family: 'Roboto', 'Helvetica', sans-serif;
-    text-rendering:geometricPrecision;
+    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    color: var(--text-gray);
     width: 100%;
   }
 
@@ -51,8 +46,5 @@ const GlobalStyle = createGlobalStyle`
   input,
   input::placeholder,
   button {
-    font-family: 'Helvetica';
+    font-family: 'Montserrat', sans-serif;
   }
-`;
-
-export default GlobalStyle;

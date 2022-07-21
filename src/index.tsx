@@ -1,18 +1,18 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { AppThemeProvider } from "@layouts/index";
 import App from "./App";
-import GlobalStyle from "@styles/global";
+import "@styles/global";
 
 const root = createRoot(document.getElementById("root")!);
 
 const Root =  (
     <AppThemeProvider>
-        <>
-            <GlobalStyle />
+        <Router>
             <App />
-        </>
+        </Router>
     </AppThemeProvider>
 );
 

@@ -1,9 +1,7 @@
-import React from 'react';
-
 import styled from "styled-components";
 
 const Header = styled.header`
-    background: ${props => props.theme.colors.secondary};
+    background: ${props => props.theme.colors.primary};
     display: flex;
     align-items: center;
     justify-content: space-between;
