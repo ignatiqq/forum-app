@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { AppThemes } from "@constants/theme";
-import { LocalStorageKeys } from "@/constants/storages/localStorage";
+import { LocalStorageKeys } from "@constants/storages/localStorage";
 
 interface IThemeState {
     theme: {

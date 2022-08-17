@@ -4,8 +4,7 @@ import { takeEvery, put, call } from "redux-saga/effects";
 
 import { changeTheme } from "../slice";
 
-function* changeAppThemeHandler(action: PayloadAction<AppThemes>) {
-    console.log(action);
+export function* changeAppThemeHandler(action: PayloadAction<AppThemes>) {
     yield put(changeTheme(action.payload));
     yield call(localStorage.setItem as any, action.payload);
 }
