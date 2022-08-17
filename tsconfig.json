@@ -10,7 +10,7 @@
         "@molecules/*": ["./src/components/molecules/*"],
         "@organisms/*": ["./src/components/organisms/*"],
         "@constants/*": ["./src/constants/*"],
-        "@api/*": ["./src/api/*"]
+        "@api/*": ["./src/api/*"],
       },
       "jsx": "react",
       "allowJs": true,

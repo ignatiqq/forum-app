@@ -1,21 +1,20 @@
-import React , { useState } from 'react';
-
+import React from 'react';
 import { ThemeProvider } from "styled-components";
+
+import { AppThemes } from '@/constants/theme';
 import { getAppTheme } from "@styles/theme";
-import { LocalStorageKeys } from "@constants/storages/localStorage";
 
 interface IAppThemeProviderProps {
-    children: React.ReactElement
+    children: React.ReactElement,
+    theme: AppThemes
 }
 
-const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({children}) => {
-
-    const themeFromStorage: string | null = localStorage.getItem(LocalStorageKeys.Theme);
-
-    const [appTheme, setAppTheme] = useState<string>(themeFromStorage ? themeFromStorage : "light");
-
+const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
+    children, 
+    theme = AppThemes.Light
+}) => {
     return (
-        <ThemeProvider theme={getAppTheme(appTheme)}>
+        <ThemeProvider theme={getAppTheme(theme)}>
             {children}
         </ThemeProvider>
     )

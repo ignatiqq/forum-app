@@ -1,12 +1,13 @@
+import { AppThemes } from "@/constants/theme";
 import { lightTheme, darkTheme, theme } from ".";
 
 interface ITheme {
     [key: string]: object
 }
 
-function getAppTheme(params: string): ITheme {
+function getAppTheme(params: AppThemes): ITheme {
     switch (params) {
-        case "light": {
+        case AppThemes.Light: {
             return {
                 ...theme,
                 colors: {
@@ -16,7 +17,7 @@ function getAppTheme(params: string): ITheme {
         }
         break;
 
-        case "dark": {
+        case AppThemes.Dark: {
             return {
                 ...theme,
                 colors: {

@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Button, NavigationLink } from '@atoms/index';
-import { Navigation } from "@molecules/index";
-import { Container,   Header } from './layouts';
+import { AppThemeProvider, Container, Header } from "@layouts/index";
+import { LocalStorageKeys } from "@constants/storages/localStorage";
+import { AppThemes } from '@constants/theme';
+
+const initialTheme = (localStorage.getItem(LocalStorageKeys.Theme) as AppThemes | null) || AppThemes.Light
 
 const App = () => {
+  const [theme, setTheme] = useState<AppThemes>(initialTheme);
+
+  const changeThemeHandler = (theme: AppThemes) => {
+    setTheme(theme);
+    localStorage.setItem(LocalStorageKeys.Theme, JSON.stringify(theme));
+  }
+
   return (
-    <Container>
-      <Header>
-        <Navigation>
-          <NavigationLink to="/">Main</NavigationLink>
-          <NavigationLink to="/login">Login</NavigationLink>
-        </Navigation>
-      </Header>
-    </Container>
+    <AppThemeProvider theme={theme}>
+      <Container>
+        <Header />
+      </Container>
+    </AppThemeProvider>
   )
 }
 
