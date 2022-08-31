@@ -1,1 +1,1 @@
-export { default as LocalStorageKeys } from "./localStorageKeys";
+export { default as LocalStorageKeys } from './localStorageKeys';

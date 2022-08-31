@@ -1,5 +1,5 @@
 enum LocalStorageKeys {
-    Theme = "theme"
+  Theme = 'theme'
 }
 
 export default LocalStorageKeys;

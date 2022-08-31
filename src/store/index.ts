@@ -1,17 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
-import createSagaMiddleware from "@redux-saga/core";
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from '@redux-saga/core';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import rootSaga from "./rootSaga";
-import rootReducer from "./rootReducer";
+import rootSaga from './rootSaga';
+import rootReducer from './rootReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-    reducer: rootReducer,
-    middleware: [sagaMiddleware],
-    devTools: process.env.NODE_ENV !== "production"
-})
+  reducer: rootReducer,
+  middleware: [sagaMiddleware],
+  devTools: process.env.NODE_ENV !== 'production'
+});
 
 sagaMiddleware.run(rootSaga);
 

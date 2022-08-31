@@ -1,1 +1,1 @@
-export { default as useInView } from "./useInView/useInView";
+export { default as useInView } from './useInView/useInView';

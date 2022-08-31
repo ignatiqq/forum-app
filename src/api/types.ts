@@ -1,4 +1,4 @@
 export interface IRequestPagination {
-    limit?: number,
-    page: number
+  limit?: number;
+  page: number;
 }
