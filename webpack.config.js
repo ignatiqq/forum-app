@@ -89,9 +89,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
-        GITHUB_API_URL: JSON.stringify(
-          'https://api.github.com' || process.env.GITHUB_API_URL
-        ),
+        GITHUB_API_URL: JSON.stringify('https://api.github.com' || process.env.GITHUB_API_URL),
         GITHUB_CLIENT_ID: JSON.stringify('Iv1.da154f760a9b22b7' || process.env.GITHUB_CLIENT_ID),
         GITHUB_CLIENT_SECRET: JSON.stringify(
           'e606c3bf9b5bd16a4ad461cd6af8ba41e2437664' || process.env.GITHUB_CLIENT_SECRET

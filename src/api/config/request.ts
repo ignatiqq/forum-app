@@ -12,13 +12,13 @@ function makeRequest<T>({ url, method, body, ...config }: IRequestArgs<T>): Prom
 }
 
 export const requests = Object.freeze({
-  post<T>(url: string, body: T, config: IRequestConfig) {
+  post<T>(url: string, body: T, config?: IRequestConfig) {
     return makeRequest({ url, method: requestMethods.POST, body, ...config });
   },
-  get(url: string, config: IRequestConfig) {
+  get(url: string, config?: IRequestConfig) {
     return makeRequest({ url, method: requestMethods.GET, ...config });
   },
-  put<T>(url: string, body: T, config: IRequestConfig) {
+  put<T>(url: string, body: T, config?: IRequestConfig) {
     return makeRequest({ url, method: requestMethods.PUT, body, ...config });
   }
 });

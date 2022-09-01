@@ -4,6 +4,13 @@ export interface ILoginViaGithubParams {
   client_secret: string;
 }
 
+export interface IRefreshRequestParams {
+  refresh_token: string,
+  grant_type?: string,
+  client_id: string,
+  client_secret: string
+}
+
 export interface ILoginViaGithubResponse {
   access_token: string;
   expires_in: number;
