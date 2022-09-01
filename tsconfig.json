@@ -14,7 +14,8 @@
       "@pages/*": ["./src/pages/*"],
       "@routes/*": ["./src/routes/*"],
       "@store/*": ["./src/store/*"],
-      "@_tests_/*": ["./src/_tests_/*"]
+      "@_tests_/*": ["./src/_tests_/*"],
+      "@styled/*": ["./src/styled/*"]
     },
     "jsx": "react",
     "allowJs": true,

@@ -33,7 +33,8 @@ module.exports = {
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@routes': path.resolve(__dirname, 'src/routes'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@_tests_': path.resolve(__dirname, 'src/_tests_')
+      '@_tests_': path.resolve(__dirname, 'src/_tests_'),
+      '@styled': path.resolve(__dirname, 'src/styled')
     }
   },
   optimization: {
@@ -89,7 +90,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
         GITHUB_API_URL: JSON.stringify(
-          'https://api.github.com/graphql' || process.env.GITHUB_API_URL
+          'https://api.github.com' || process.env.GITHUB_API_URL
         ),
         GITHUB_CLIENT_ID: JSON.stringify('Iv1.da154f760a9b22b7' || process.env.GITHUB_CLIENT_ID),
         GITHUB_CLIENT_SECRET: JSON.stringify(

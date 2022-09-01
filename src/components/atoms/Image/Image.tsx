@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 interface IImageProps {
   src: string;
-  width: string;
-  height: string;
-  borderRadius: string;
+  alt: string;
+  width?: string;
+  height?: string;
+  borderRadius?: string;
 }
 
 const StyledImage = styled.image<IImageProps>`

@@ -30,7 +30,7 @@ describe('test auth sagas', () => {
     };
   });
 
-  test('test loginUser saga fn success', () => {
+  test('test loginUser sagas fn success', () => {
     return expectSaga(loginUser, mockRequestData)
       .put(setUserAuthLoading(true))
       .put(setUserAuthLoading(false))
@@ -43,7 +43,7 @@ describe('test auth sagas', () => {
       .run();
   });
 
-  test('test loginUser saga fn api error', () => {
+  test('test loginUser sagas fn api error', () => {
     const errorMessage = 'some error';
 
     return expectSaga(loginUser, mockRequestData)
@@ -60,7 +60,7 @@ describe('test auth sagas', () => {
       .run();
   });
 
-  test('test loginUser saga fn api error', () => {
+  test('test loginUser sagas fn api error', () => {
     const errorMessage = 'some error';
     const error = new Error(errorMessage);
 
