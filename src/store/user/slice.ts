@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { ILoginViaGithubResponse } from '@api/endpoints/github/login/types';
 
+export interface IUserStateAuth {
+  data: ILoginViaGithubResponse | null;
+  isLoading: boolean;
+  error: string | null;
+}
+
 interface IUserState {
-  auth: {
-    data: ILoginViaGithubResponse | null;
-    isLoading: boolean;
-    error: string | null;
-  };
+  auth: IUserStateAuth;
 }
 
 const initialState: IUserState = {
@@ -28,7 +30,7 @@ const userSlice = createSlice({
     setUserAuthLoading(state, action: PayloadAction<boolean>) {
       state.auth.isLoading = action.payload;
     },
-    setUserAuthError(state, action: PayloadAction<string>) {
+    setUserAuthError(state, action: PayloadAction<string | null>) {
       state.auth.error = action.payload;
     }
   }

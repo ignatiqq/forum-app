@@ -12,7 +12,9 @@
       "@constants/*": ["./src/constants/*"],
       "@api/*": ["./src/api/*"],
       "@pages/*": ["./src/pages/*"],
-      "@routes/*": ["./src/routes/*"]
+      "@routes/*": ["./src/routes/*"],
+      "@store/*": ["./src/store/*"],
+      "@_tests_/*": ["./src/_tests_/*"]
     },
     "jsx": "react",
     "allowJs": true,

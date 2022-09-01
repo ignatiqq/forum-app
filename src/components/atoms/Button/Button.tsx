@@ -1,6 +1,12 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const DefaultButton = styled.button`
+interface IButtonProps {
+  children: React.ReactNode;
+  onClick: (data?: any) => any;
+}
+
+const DefaultButton = styled.button<IButtonProps>`
   padding: 10px 15px;
   color: ${(props) => props.theme.colors.primaryText};
   border: 1px solid ${(props) => props.theme.colors.primary};
@@ -14,4 +20,8 @@ const DefaultButton = styled.button`
   }
 `;
 
-export { DefaultButton as Button };
+const Button: React.FC<IButtonProps> = (props) => {
+  return <DefaultButton {...props}>{props.children}</DefaultButton>;
+};
+
+export default Button;

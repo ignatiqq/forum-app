@@ -2,7 +2,7 @@ import githubAPI from '../config';
 import { paramsToString } from '@utils/request';
 import type { ILoginViaGithubParams, ILoginViaGithubResponse } from './types';
 import type { Response } from '@api/config';
-import { requests } from '@/api/config/request';
+import { requests } from '@api/config/request';
 import { IGithubApiResponse } from '../types';
 
 const login = Object.freeze({

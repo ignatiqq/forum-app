@@ -1,9 +1,16 @@
+import { keyframes } from 'styled-components';
+
+const breatheAnimation = keyframes`
+ 50% { background: #fff; box-shadow: 0 -200px 100px -100px #eee inset; }
+`;
+
 const theme = {
   colors: {
     primaryText: '#4C4C4C',
     secondaryText: '#888888',
     primary: '#CD8802',
-    secondary: '#f6f6ef'
+    secondary: '#f6f6ef',
+    error: 'red'
   },
   mediaQueries: {
     mobile: '480px',
@@ -19,6 +26,9 @@ const theme = {
   },
   transition: {
     hover: 'all .3s ease'
+  },
+  animations: {
+    background: breatheAnimation
   }
 };
 

@@ -31,7 +31,9 @@ module.exports = {
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@api': path.resolve(__dirname, 'src/api'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@routes': path.resolve(__dirname, 'src/routes')
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@_tests_': path.resolve(__dirname, 'src/_tests_')
     }
   },
   optimization: {
