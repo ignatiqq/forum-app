@@ -8,7 +8,6 @@ import { githubEndpoints } from '@api/endpoints';
 import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '../slice';
 import { loginFlowWatcher, loginUser } from './auth';
 import { throwError } from 'redux-saga-test-plan/providers';
-import { fetchUserLogin } from '@/store/user/actions';
 
 describe('test auth sagas', () => {
   let mockRequestData;

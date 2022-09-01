@@ -29,7 +29,7 @@ export function* refreshTokenHandler() {
       requestData
     );
 
-    if (response.status > 300) {
+    if (response.status >= 300) {
       throw new Error(BAD_REQUEST(response.status));
     }
 
@@ -43,6 +43,9 @@ export function* refreshTokenHandler() {
   } catch (error) {
     yield call(console.error, (error as Error).message);
     yield put(setUserAuthError((error as Error).message));
+
+    yield call(Cookies.remove, REFRESH_TOKEN);
+    yield call(Cookies.remove, ACCESS_TOKEN);
   } finally {
     yield put(setUserAuthLoading(false));
   }
