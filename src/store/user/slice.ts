@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { ILoginViaGithubResponse } from '@api/endpoints/github/login/types';
+import Cookies from 'js-cookie';
+import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
 
 export interface IUserStateAuth {
   data: ILoginViaGithubResponse | null;
@@ -8,23 +10,33 @@ export interface IUserStateAuth {
   error: string | null;
 }
 
-export interface IUserStateInfo {
+export interface IUserStateInfoData {
   id: number;
   login: string;
 }
 
+export interface IUserStateInfo {
+  data: IUserStateInfoData | null;
+  isLoading: boolean;
+  error: string | null;
+}
+
+const initialAuthData = Cookies.get(ACCESS_TOKEN)
+  ? {
+      access_token: `${Cookies.get(ACCESS_TOKEN)}`,
+      scope: '',
+      token_type: 'bearer'
+    }
+  : null;
+
 interface IUserState {
   auth: IUserStateAuth;
-  info: {
-    data: IUserStateInfo | null;
-    isLoading: boolean;
-    error: string | null;
-  };
+  info: IUserStateInfo;
 }
 
 const initialState: IUserState = {
   auth: {
-    data: null,
+    data: initialAuthData,
     isLoading: false,
     error: null
   },
@@ -48,7 +60,7 @@ const userSlice = createSlice({
     setUserAuthError(state, action: PayloadAction<string | null>) {
       state.auth.error = action.payload;
     },
-    setUserInfoData(state, action: PayloadAction<IUserStateInfo>) {
+    setUserInfoData(state, action: PayloadAction<IUserStateInfoData>) {
       state.info.data = action.payload;
     },
     setUserInfoLoading(state, action: PayloadAction<boolean>) {

@@ -1,26 +1,25 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, gql, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Cookies from 'js-cookie';
-import { REFRESH_TOKEN } from '@constants/storageKeys/storageKeys';
+import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
 
 const link = createHttpLink({
-  uri: `${process.env.GITHUB_API_URL}/graphql`,
-  credentials: 'include'
+  uri: `${process.env.GITHUB_API_URL}/graphql`
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = Cookies.get(REFRESH_TOKEN);
+  const token = Cookies.get(ACCESS_TOKEN);
 
   return {
     headers: {
       ...headers,
-      Authorization: token ? `Bearer ${token}` : ''
+      Authorization: `Bearer ${token}`
     }
   };
 });
 
 const githubClient = new ApolloClient({
-  uri: authLink.concat(link) as any,
+  link: authLink.concat(link) as any,
   cache: new InMemoryCache()
 });
 

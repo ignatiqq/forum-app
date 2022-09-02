@@ -9,7 +9,7 @@ interface IImageProps {
   borderRadius?: string;
 }
 
-const StyledImage = styled.image<IImageProps>`
+const StyledImage = styled.img<IImageProps>`
   width: ${({ width }) => width || 'auto'};
   height: ${({ height }) => height || 'auto'};
   border: ${({ borderRadius }) => (borderRadius ? '1px solid' : 'none')};

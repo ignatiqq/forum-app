@@ -7,7 +7,7 @@ import { IUserInfoResponse } from '@api/endpoints/github/user/types';
 
 const user = Object.freeze({
   info: (): Promise<Response<IGithubApiResponse<IUserInfoResponse>>> => {
-    return requests.post(`${process.env.GITHUB_API_URL}/user?access_token=${Cookies.get(ACCESS_TOKEN)}`, null, {
+    return requests.get(`${process.env.GITHUB_API_URL}/user`, {
       headers: {
         Authorization: `Bearer ${Cookies.get(ACCESS_TOKEN)}`
       }

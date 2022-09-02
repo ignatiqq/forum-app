@@ -3,7 +3,7 @@ import * as is from '@redux-saga/is';
 import Cookies from 'js-cookie';
 import { expectSaga } from 'redux-saga-test-plan';
 
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '@constants/storageKeys/storageKeys';
+import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
 import { githubEndpoints } from '@api/endpoints';
 import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '../../slice';
 import { loginFlowWatcher, loginUser } from './auth';
@@ -22,8 +22,6 @@ describe('test auth sagas', () => {
     mockResponseData = {
       access_token: 'access',
       expires_in: 123,
-      refresh_token: 'refresh',
-      refresh_token_expires_in: 12345,
       scope: '',
       token_type: 'bearer'
     };
@@ -35,7 +33,6 @@ describe('test auth sagas', () => {
       .put(setUserAuthLoading(false))
       .provide([
         [matchers.call.fn(githubEndpoints.login.login), { status: 200, data: mockResponseData }],
-        [matchers.call.fn(Cookies.set, REFRESH_TOKEN, mockResponseData.refresh_token)],
         [matchers.call.fn(Cookies.set, ACCESS_TOKEN, mockResponseData.access_token)]
       ])
       .put(setUserAuthData(mockResponseData))
@@ -86,10 +83,7 @@ describe('test loginFlowWatcher', () => {
     return (
       expectSaga(loginFlowWatcher)
         .provide({ cancel: cancelSpy })
-        .provide([
-          [matchers.call.fn(Cookies.remove, REFRESH_TOKEN)],
-          [matchers.call.fn(Cookies.remove, ACCESS_TOKEN)]
-        ])
+        .provide([[matchers.call.fn(Cookies.remove, ACCESS_TOKEN)]])
         // .put(setUserAuthLoading(false))
         // .put(setUserAuthError(null))
         .run()

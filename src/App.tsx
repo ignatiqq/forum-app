@@ -5,7 +5,7 @@ import { AppThemes } from '@constants/theme';
 import { useAppDispatch, useAppSelector } from './store';
 import { changeTheme } from './store/theme/slice';
 import AppRoutes from '@routes/Routes';
-import { getUserInfo } from "@store/user/actions";
+import { getUserInfo } from '@store/user/actions';
 
 const App = () => {
   const { colorTheme, auth } = useAppSelector(({ themeSlice, userSlice }) => ({
@@ -24,7 +24,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    if(auth.data?.refresh_token) {
+    if (auth.data?.access_token) {
       dispatch(getUserInfo());
     }
   }, [auth.data]);

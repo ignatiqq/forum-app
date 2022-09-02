@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '@store/user/slice';
 import { githubEndpoints } from '@api/endpoints';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '@constants/storageKeys/storageKeys';
+import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
 import Cookies from 'js-cookie';
 import { BAD_REQUEST, NOT_ATHORIZED } from '@constants/errors/errors';
 import { throwError } from 'redux-saga-test-plan/providers';
@@ -19,8 +19,6 @@ describe('test initAppRequests sagas', () => {
     const responseData = {
       access_token: 'access',
       expires_in: 123,
-      refresh_token: 'refresh',
-      refresh_token_expires_in: 12345,
       scope: '',
       token_type: 'bearer'
     };
@@ -30,7 +28,6 @@ describe('test initAppRequests sagas', () => {
       .put(setUserAuthLoading(false))
       .provide([
         [matchers.call.fn(githubEndpoints.login.refresh), { status: 200, data: responseData }],
-        [matchers.call.fn(Cookies.set, REFRESH_TOKEN, responseData.refresh_token)],
         [matchers.call.fn(Cookies.set, ACCESS_TOKEN, responseData.access_token)]
       ])
       .put(setUserAuthData(responseData))
@@ -50,8 +47,6 @@ describe('test initAppRequests sagas', () => {
     const responseData = {
       access_token: 'access',
       expires_in: 123,
-      refresh_token: 'refresh',
-      refresh_token_expires_in: 12345,
       scope: '',
       token_type: 'bearer'
     };
@@ -61,7 +56,6 @@ describe('test initAppRequests sagas', () => {
       .put(setUserAuthLoading(false))
       .provide([
         [matchers.call.fn(githubEndpoints.login.refresh), { status: 300, data: responseData }],
-        [matchers.call.fn(Cookies.remove, REFRESH_TOKEN)],
         [matchers.call.fn(Cookies.remove, ACCESS_TOKEN)]
       ])
       .put(setUserAuthError(BAD_REQUEST(300)))
@@ -79,7 +73,6 @@ describe('test initAppRequests sagas', () => {
       .put(setUserAuthLoading(false))
       .provide([
         [matchers.call.fn(githubEndpoints.login.refresh), throwError(error)],
-        [matchers.call.fn(Cookies.remove, REFRESH_TOKEN)],
         [matchers.call.fn(Cookies.remove, ACCESS_TOKEN)]
       ])
       .put(setUserAuthError(error.message))

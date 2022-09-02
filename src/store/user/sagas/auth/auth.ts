@@ -8,7 +8,7 @@ import { githubEndpoints } from '@api/endpoints';
 import { ILoginViaGithubParams, ILoginViaGithubResponse } from '@api/endpoints/github/login/types';
 import { cancelUserLogin, fetchUserLogin } from '@store/user/actions';
 import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '../../slice';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '@constants/storageKeys/storageKeys';
+import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
 import { IGithubApiResponse, isGithubApiError } from '@api/endpoints/github/types';
 import { AnyAction } from '@reduxjs/toolkit';
 
@@ -30,7 +30,6 @@ export function* loginUser(loginData: ILoginViaGithubParams) {
     }
 
     yield put(setUserAuthData(response.data));
-    yield call(Cookies.set, REFRESH_TOKEN, response.data.refresh_token);
     yield call(Cookies.set, ACCESS_TOKEN, response.data.access_token);
   } catch (error) {
     yield call(console.error, (error as Error).message);
@@ -40,7 +39,6 @@ export function* loginUser(loginData: ILoginViaGithubParams) {
     if (cancelledSaga) {
       yield call(console.log, 'cancelled');
       yield put(setUserAuthError(null));
-      yield call(Cookies.remove, REFRESH_TOKEN);
       yield call(Cookies.remove, ACCESS_TOKEN);
     }
     yield put(setUserAuthLoading(false));

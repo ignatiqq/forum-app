@@ -12,7 +12,13 @@ const ProfileInfo: React.FC<IProfileInfo> = ({ image, name }) => {
   return (
     <Flex flexDirection={'column'} alignItems={'center'}>
       <div>
-        <Image src={image} alt={`${name}-image`} borderRadius={'100%'} />
+        <Image
+          width={'60px'}
+          height={'60px'}
+          src={image}
+          alt={`${name}-image`}
+          borderRadius={'100%'}
+        />
       </div>
       <div>
         <h2>Name: </h2>

@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
+    publicPath: '/',
     clean: true
   },
   resolve: {
@@ -90,9 +91,9 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
         GITHUB_API_URL: JSON.stringify('https://api.github.com' || process.env.GITHUB_API_URL),
-        GITHUB_CLIENT_ID: JSON.stringify('Iv1.da154f760a9b22b7' || process.env.GITHUB_CLIENT_ID),
+        GITHUB_CLIENT_ID: JSON.stringify('92295cd5d127322ce7d7' || process.env.GITHUB_CLIENT_ID),
         GITHUB_CLIENT_SECRET: JSON.stringify(
-          'e606c3bf9b5bd16a4ad461cd6af8ba41e2437664' || process.env.GITHUB_CLIENT_SECRET
+          '4b0ab030a7f311008385ae90d977c5aa420bc294' || process.env.GITHUB_CLIENT_SECRET
         )
       }
     }),
