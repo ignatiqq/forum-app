@@ -17,7 +17,7 @@ const PrivateRoute: React.FC<IPrivateRoute> = ({ Component }) => {
 
   useEffect(() => {
     if ((!auth.isLoading && !auth.data && auth.error) || !Cookies.get(REFRESH_TOKEN)) {
-      navigate('/login');
+      navigate('/auth');
     }
   }, [auth]);
 

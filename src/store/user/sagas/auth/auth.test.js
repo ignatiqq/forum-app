@@ -5,7 +5,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@constants/storageKeys/storageKeys';
 import { githubEndpoints } from '@api/endpoints';
-import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '../slice';
+import { setUserAuthData, setUserAuthError, setUserAuthLoading } from '../../slice';
 import { loginFlowWatcher, loginUser } from './auth';
 import { throwError } from 'redux-saga-test-plan/providers';
 

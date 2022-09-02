@@ -13,7 +13,7 @@ export function* refreshTokenHandler() {
     const refreshToken: string | undefined = yield call(Cookies.get as any, REFRESH_TOKEN);
 
     if (!refreshToken) {
-      throw new Error(NOT_ATHORIZED);
+      return;
     }
 
     yield put(setUserAuthLoading(true));
@@ -22,7 +22,7 @@ export function* refreshTokenHandler() {
       refresh_token: refreshToken,
       client_id: `${process.env.GITHUB_CLIENT_ID}`,
       client_secret: `${process.env.GITHUB_CLIENT_SECRET}`
-    }
+    };
 
     const response: Response<IGithubApiResponse<ILoginViaGithubResponse>> = yield call(
       githubEndpoints.login.refresh,

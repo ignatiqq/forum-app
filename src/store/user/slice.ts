@@ -8,12 +8,27 @@ export interface IUserStateAuth {
   error: string | null;
 }
 
+export interface IUserStateInfo {
+  id: number;
+  login: string;
+}
+
 interface IUserState {
   auth: IUserStateAuth;
+  info: {
+    data: IUserStateInfo | null;
+    isLoading: boolean;
+    error: string | null;
+  };
 }
 
 const initialState: IUserState = {
   auth: {
+    data: null,
+    isLoading: false,
+    error: null
+  },
+  info: {
     data: null,
     isLoading: false,
     error: null
@@ -32,9 +47,25 @@ const userSlice = createSlice({
     },
     setUserAuthError(state, action: PayloadAction<string | null>) {
       state.auth.error = action.payload;
+    },
+    setUserInfoData(state, action: PayloadAction<IUserStateInfo>) {
+      state.info.data = action.payload;
+    },
+    setUserInfoLoading(state, action: PayloadAction<boolean>) {
+      state.info.isLoading = action.payload;
+    },
+    setUserInfoRequestError(state, action: PayloadAction<string | null>) {
+      state.info.error = action.payload;
     }
   }
 });
 
-export const { setUserAuthData, setUserAuthLoading, setUserAuthError } = userSlice.actions;
+export const {
+  setUserAuthData,
+  setUserAuthLoading,
+  setUserAuthError,
+  setUserInfoData,
+  setUserInfoLoading,
+  setUserInfoRequestError
+} = userSlice.actions;
 export default userSlice.reducer;

@@ -30,7 +30,7 @@ const AuthView: React.FC<IAuthProps> = ({ authData, cancelAuthHandler }) => {
         ) : (
           <a
             data-testid={'auth-by-github-link'}
-            href="https://github.com/login/oauth/authorize?client_id=Iv1.da154f760a9b22b7"
+            href={`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`}
           >
             auth by github
           </a>
