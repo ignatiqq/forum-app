@@ -35,7 +35,8 @@ module.exports = {
       '@routes': path.resolve(__dirname, 'src/routes'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@_tests_': path.resolve(__dirname, 'src/_tests_'),
-      '@styled': path.resolve(__dirname, 'src/styled')
+      '@styled': path.resolve(__dirname, 'src/styled'),
+      '@assets': path.resolve(__dirname, 'src/assets')
     }
   },
   optimization: {
@@ -71,7 +72,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
             loader: 'file-loader'

@@ -5,6 +5,7 @@ import { Home, Auth, Profile } from '@pages/index';
 import PrivateRoute from '@routes/PrivateRoute/PrivateRoute';
 import Cookies from 'js-cookie';
 import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';
+import Error from "@pages/Error/Error";
 
 const AuthPage = () => {
   if (Cookies.get(ACCESS_TOKEN)) {
@@ -26,7 +27,8 @@ const AppRoutes = () =>
           element: <Profile />
         }
       ]
-    }
+    },
+    { path: "*", element: <Error status={404} />}
   ]);
 
 export default AppRoutes;

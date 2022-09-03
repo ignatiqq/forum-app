@@ -20,6 +20,7 @@ export const GET_USER_PROFILE_INFO = gql`
                   id
                 }
               }
+              totalCount
             }
           }
         }

@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useLazyQuery } from '@apollo/client';
+
+import type { IProfileViewProps } from '@pages/Profile/ProfileView';
 import { GET_USER_PROFILE_INFO } from '@api/gql/queries/profile';
 import { IUserProfileData } from '@api/gql/queries/profile/types';
 
-const ProfileLogic = (Component: React.FC) => () => {
+const ProfileLogic = (Component: React.FC<IProfileViewProps>) => () => {
   const params = useParams();
-  const [getUserProfileData, { loading, data, error }] =
-    useLazyQuery<IUserProfileData>(GET_USER_PROFILE_INFO);
+  const [getUserProfileData, { loading, data, error }] = useLazyQuery<{ user: IUserProfileData }>(
+    GET_USER_PROFILE_INFO
+  );
 
   useEffect(() => {
     if (params?.id) {
@@ -19,8 +22,7 @@ const ProfileLogic = (Component: React.FC) => () => {
     }
   }, [params]);
 
-  console.log(loading, data, error);
-  return <Component />;
+  return <Component data={data?.user} isLoading={loading} error={error?.message} />;
 };
 
 export default ProfileLogic;
