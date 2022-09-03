@@ -35,7 +35,7 @@ module.exports = {
       '@routes': path.resolve(__dirname, 'src/routes'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@_tests_': path.resolve(__dirname, 'src/_tests_'),
-      '@styled': path.resolve(__dirname, 'src/styled'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
       '@assets': path.resolve(__dirname, 'src/assets')
     }
   },

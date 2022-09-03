@@ -3,7 +3,7 @@ import React from 'react';
 import ProfileLogic from '@pages/Profile/ProfileLogic';
 import { ProfileInfo } from '@molecules/index';
 import { IUserProfileData } from '@api/gql/queries/profile/types';
-import { ErrorTitle } from '@atoms/index';
+import { ErrorTitle, Loader } from "@atoms/index";
 
 export interface IProfileViewProps {
   data: IUserProfileData | undefined;
@@ -13,7 +13,7 @@ export interface IProfileViewProps {
 
 const ProfileView: React.FC<IProfileViewProps> = ({ data, isLoading, error }) => {
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Button, NavigationLink } from '@atoms/index';
 import { Navigation } from '@molecules/index';
-import { Flex } from '@/styled';
+import { Flex } from '@/shared';
 
 const HeaderEl = styled.header`
   background: ${(props) => props.theme.colors.primary};

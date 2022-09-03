@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AuthLogic from './AuthLogic';
 import { IUserStateAuth } from '@store/user/slice';
-import { Button, ErrorTitle } from '@atoms/index';
+import { Button, ErrorTitle, Loader } from "@atoms/index";
 
 export interface IAuthProps {
   authData: IUserStateAuth;
@@ -22,7 +22,7 @@ const AuthView: React.FC<IAuthProps> = ({ authData, cancelAuthHandler }) => {
         <h1>Auth by github: </h1>
         {authData.isLoading ? (
           <>
-            <div>Loading...</div>
+            <Loader />
             <Button data-testid={'cancel-login-btn'} onClick={cancelBtnHandler}>
               Cancel login
             </Button>

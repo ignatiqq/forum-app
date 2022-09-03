@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Image } from '@atoms/index';
-import { Flex } from '@styled/index';
+import { Flex } from '@/shared/index';
 
 interface IProfileInfo {
   image: string;

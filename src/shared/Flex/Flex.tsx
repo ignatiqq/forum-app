@@ -7,6 +7,7 @@ interface IFlexProps {
   justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
   customWidth?: string;
   children: React.ReactNode;
+  customHeight?: string
 }
 
 const StyledFlex = styled.div<IFlexProps>`
@@ -15,6 +16,7 @@ const StyledFlex = styled.div<IFlexProps>`
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
   justify-content: ${({ justifyContent }) => justifyContent || 'stretch'};
   width: ${({ customWidth }) => customWidth || 'auto'};
+  height: ${({ customHeight }) => customHeight}
 `;
 
 const Flex: React.FC<IFlexProps> = (props) => {

@@ -13,6 +13,7 @@ const StyledError = styled.div<IErrorTitleProps>`
   font-size: ${({ fontSize }) => fontSize || '18px'};
   margin: ${({ margin }) => margin || '10px 0px'};
   max-width: 500px;
+  font-weight: bold;
 `;
 
 const ErrorTitle: React.FC<IErrorTitleProps> = (props) => {
