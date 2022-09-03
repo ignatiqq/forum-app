@@ -3,7 +3,8 @@ import React from 'react';
 import ProfileLogic from '@pages/Profile/ProfileLogic';
 import { ProfileInfo } from '@molecules/index';
 import { IUserProfileData } from '@api/gql/queries/profile/types';
-import { ErrorTitle, Loader } from "@atoms/index";
+import { ErrorTitle, Loader } from '@atoms/index';
+import { Repositories } from '@layouts/Github';
 
 export interface IProfileViewProps {
   data: IUserProfileData | undefined;
@@ -24,9 +25,10 @@ const ProfileView: React.FC<IProfileViewProps> = ({ data, isLoading, error }) =>
     <>
       {data && (
         <div>
-          <ProfileInfo image={data.avatarUrl} name={data.login} />
+          <ProfileInfo image={data.avatarUrl} name={data.login} bio={data.bio} />
         </div>
       )}
+      <Repositories />
     </>
   );
 };

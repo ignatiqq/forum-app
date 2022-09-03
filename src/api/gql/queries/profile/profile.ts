@@ -11,19 +11,6 @@ export const GET_USER_PROFILE_INFO = gql`
       }
       repositories(first: 10) {
         totalCount
-        edges {
-          node {
-            createdAt
-            issues(first: 3) {
-              edges {
-                node {
-                  id
-                }
-              }
-              totalCount
-            }
-          }
-        }
       }
     }
   }

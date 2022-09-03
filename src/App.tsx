@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 import { AppThemeProvider, Container, Header } from '@layouts/index';
 import { AppThemes } from '@constants/theme';
@@ -6,6 +7,10 @@ import { useAppDispatch, useAppSelector } from './store';
 import { changeTheme } from './store/theme/slice';
 import AppRoutes from '@routes/Routes';
 import { getUserInfo } from '@store/user/actions';
+
+const StyledAppPadding = styled.div`
+  padding: 15px;
+`;
 
 const App = () => {
   const { colorTheme, auth } = useAppSelector(({ themeSlice, userSlice }) => ({
@@ -33,7 +38,9 @@ const App = () => {
     <AppThemeProvider theme={colorTheme}>
       <Container>
         <Header />
-        <AppRoutes />
+        <StyledAppPadding>
+          <AppRoutes />
+        </StyledAppPadding>
       </Container>
     </AppThemeProvider>
   );

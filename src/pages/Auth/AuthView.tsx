@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AuthLogic from './AuthLogic';
 import { IUserStateAuth } from '@store/user/slice';
-import { Button, ErrorTitle, Loader } from "@atoms/index";
+import { Button, ErrorTitle, Loader } from '@atoms/index';
 
 export interface IAuthProps {
   authData: IUserStateAuth;
