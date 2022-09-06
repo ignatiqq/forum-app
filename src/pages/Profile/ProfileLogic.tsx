@@ -13,14 +13,14 @@ const ProfileLogic = (Component: React.FC<IProfileViewProps>) => () => {
   );
 
   useEffect(() => {
-    if (params?.id) {
+    if (params?.id && !data) {
       getUserProfileData({
         variables: {
           login: params.id
         }
       });
     }
-  }, [params]);
+  }, [params, data]);
 
   return <Component data={data?.user} isLoading={loading} error={error?.message} />;
 };

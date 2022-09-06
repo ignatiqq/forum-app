@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 interface IUseInViewProps {
-  ref: { current: HTMLElement | null };
-  options?: {
+  options: {
     root: HTMLElement | null;
     rootMargin: string;
     threshold: number;
   };
-  callback?: (data: IntersectionObserverEntry) => void;
+  callback: (data: IntersectionObserverEntry) => void;
 }
 
 interface IUseInViewReturnValue {
+  containerRef: MutableRefObject<HTMLDivElement | null>;
   isInView: boolean;
 }
 
@@ -21,21 +21,17 @@ const standartOptions = {
 };
 
 const useInView = ({
-  ref,
   options = standartOptions,
   callback
-}: IUseInViewProps): IUseInViewReturnValue => {
+}: Partial<IUseInViewProps> = {}): IUseInViewReturnValue => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInview] = useState(false);
 
   const observerCallback = (
     entries: IntersectionObserverEntry[],
     observer: IntersectionObserver
   ) => {
-    if (entries[0].isIntersecting) {
-      setIsInview(true);
-    } else {
-      setIsInview(false);
-    }
+    setIsInview(entries[0].isIntersecting);
     if (callback) {
       callback(entries[0]);
     }
@@ -44,19 +40,19 @@ const useInView = ({
   useEffect(() => {
     let observer: IntersectionObserver | undefined;
 
-    if (ref.current) {
+    if (containerRef.current) {
       observer = new IntersectionObserver(observerCallback, options);
-      observer.observe(ref.current);
+      observer.observe(containerRef.current);
     }
 
     return () => {
-      if (ref.current) {
-        observer?.unobserve(ref.current);
+      if (containerRef.current) {
+        observer?.unobserve(containerRef.current);
       }
     };
-  }, [ref, options]);
+  }, [containerRef, options]);
 
-  return { isInView: isInView };
+  return { isInView, containerRef };
 };
 
 export default useInView;

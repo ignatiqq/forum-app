@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Text, Wrapper } from "@shared/index";
+import { Text, Wrapper } from '@shared/index';
 import Heading from '@shared/Title/Title';
-import { RepositoryStatistic } from "@molecules/Github";
-import { NavigationLink } from "@atoms/index";
+import { RepositoryStatistic } from '@molecules/Github';
+import { NavigationLink } from '@atoms/index';
 
 interface IRepositoryPinProps {
   createdAt: string;
@@ -35,10 +35,8 @@ const RepositoryPin: React.FC<IRepositoryPinProps> = ({
     <NavigationLink to={`/repository/${name}`}>
       <Wrapper border={'1px solid #000'} minWidth={'200px'} padding={'15px'}>
         <Heading level={3}>{name}</Heading>
-        <Text maxWidth={"80%"} margin={"20px 0px"}>
-          <OverflowedText>
-            {description}
-          </OverflowedText>
+        <Text maxWidth={'80%'} margin={'20px 0px'}>
+          <OverflowedText>{description}</OverflowedText>
         </Text>
         <RepositoryStatistic
           createdAt={createdAt}

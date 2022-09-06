@@ -2,21 +2,9 @@ export interface IUserProfileData {
   login: string;
   bio: string;
   avatarUrl: string;
-  repositories: IRepositoriesInfo;
-}
-
-// REPOSITORIES TYPES
-
-interface ISingleRepositoryData {
-  id: string;
-  createdAt: string;
-  description: string;
-  name: string;
-}
-
-interface IRepositoriesInfo {
-  totalCount: number;
-  edges: Array<{ node: ISingleRepositoryData }>;
+  followers: {
+    totalCount: number;
+  };
 }
 
 // ISSUES TYPES
