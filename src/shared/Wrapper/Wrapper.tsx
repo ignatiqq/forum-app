@@ -9,6 +9,11 @@ interface IWrapperProps {
   maxWidth?: string;
   minWidth?: string;
   border?: string;
+  position?: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
 }
 
 type IStyledWrapperProps = Omit<IWrapperProps, 'children'>;
@@ -20,6 +25,11 @@ const StyledWrapper = styled.div<IStyledWrapperProps>`
   max-width: ${({ maxWidth }) => maxWidth || 'auto'};
   min-width: ${({ minWidth }) => minWidth || 'auto'};
   border: ${({ border }) => border};
+  position: ${({ position }) => position};
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
+  right: ${({ right }) => right};
+  bottom: ${({ bottom }) => bottom};
 `;
 
 const Wrapper: React.FC<IWrapperProps> = (props) => {

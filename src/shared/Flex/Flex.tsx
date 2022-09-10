@@ -9,6 +9,7 @@ interface IFlexProps {
   children: React.ReactNode;
   customHeight?: string;
   margin?: string;
+  minWidth?: string;
 }
 
 const StyledFlex = styled.div<IFlexProps>`
@@ -19,6 +20,7 @@ const StyledFlex = styled.div<IFlexProps>`
   width: ${({ customWidth }) => customWidth || 'auto'};
   height: ${({ customHeight }) => customHeight};
   margin: ${({ margin }) => margin};
+  min-width: ${({ minWidth }) => minWidth};
 `;
 
 const Flex: React.FC<IFlexProps> = (props) => {

@@ -1,4 +1,4 @@
-import { AppThemes } from '@/constants/theme';
+import { AppThemes } from '@constants/theme';
 import { lightTheme, darkTheme, theme } from '.';
 
 interface ITheme {

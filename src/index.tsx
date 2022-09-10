@@ -11,8 +11,6 @@ import App from './App';
 
 const root = createRoot(document.getElementById('root')!);
 
-console.log(githubClient);
-
 const Root = (
   <ApolloProvider client={githubClient}>
     <Provider store={store}>

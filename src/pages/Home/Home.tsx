@@ -1,7 +1,8 @@
 import React from 'react';
+import { Input } from '@atoms/index';
 
 const Home = () => {
-  return <div>Home</div>;
+  return <Input type={'text'} placeholder={'Search here'}></Input>;
 };
 
 export default Home;

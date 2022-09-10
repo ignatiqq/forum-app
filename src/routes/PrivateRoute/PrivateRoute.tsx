@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useAppSelector } from '@/store';
+import { useAppSelector } from '@store/index';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { ACCESS_TOKEN } from '@constants/storageKeys/storageKeys';

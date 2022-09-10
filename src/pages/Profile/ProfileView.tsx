@@ -4,7 +4,7 @@ import ProfileLogic from '@pages/Profile/ProfileLogic';
 import { ProfileInfo } from '@molecules/index';
 import { IUserProfileData } from '@api/gql/queries/profile/types';
 import { ErrorTitle, Loader } from '@atoms/index';
-import { Repositories } from '@layouts/Github';
+import { Repositories } from '@layouts/Github/index';
 
 export interface IProfileViewProps {
   data: IUserProfileData | undefined;

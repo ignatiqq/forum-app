@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { AppThemes } from '@/constants/theme';
+import { AppThemes } from '@constants/theme';
 import { getAppTheme } from '@styles/theme';
 
 interface IAppThemeProviderProps {
